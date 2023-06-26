@@ -1,8 +1,12 @@
 from player import Player, words
 
 
+
+# κατασκευαστης παικτων υπολογιστων
 class Computer(Player):
 
+
+    # αλγοριθμος που βρισκει την μικροτερη λεξη με τα γραμματα στο χερι (hand)
     def alg(self, hand, words):
         for strin in words:
             string_chars = ' '.join(list(strin))
@@ -11,6 +15,8 @@ class Computer(Player):
                 return string_chars
         return False
 
+
+    # συναρτηση που εκτελει και εκτιπωνει αποτελεσματα απο το player
     def cplay(self, hand):
         if (self.alg(hand, words) is False):
             print("pass")

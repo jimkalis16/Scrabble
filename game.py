@@ -4,6 +4,8 @@ from player import words, highskors
 from sak import SakClass
 import json
 
+
+# κατασκευαστης μιας παρτιδας παιχνιδιου
 class Game:
 
     def __init__(self):
@@ -13,6 +15,7 @@ class Game:
         self.cscore = 0
         self.con = "pc"
 
+    # αρχικοποιει το sak και παιρνει το ονομα του παικτη
     def setup(self):
         self.pln = input("Ονομα παικtη:")
         self.sak = SakClass()
@@ -32,6 +35,7 @@ class Game:
         )
         self.run()
 
+    # τρεχει μεχρι να κλεισει ή να τελιοσουν τα γραμματα με ολους τους κανονες του παιχνιδιου
     def run(self):
         self.pl1.hprint(self.phand)
         self.word = input("Λεξη: ")
@@ -61,6 +65,7 @@ class Game:
 
         self.end()
 
+    #μετραει ποντους βρισκει και ανακηρισει νικητη μετα παιρνει τα δεδομενα και τα αποθηκευει στο score.json
     def end(self):
         print("Παικτης: ", self.pln, " συγκέντροσε: ", self.pscore)
         print("Παικτης: ", self.con, " συγκέντροσε: ", self.cscore)

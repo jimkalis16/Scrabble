@@ -1,8 +1,10 @@
 from player import Player
 
-
+# κατασκευαστης κανονικων παικτων
 class Human(Player):
 
+
+    # χρεισιμοποιει τις συναρτισεις του player και εκτυπωνει ενα 20%
     def hplay(self, word, hand):
 
         letters = Player.string_brake(self, word)
@@ -25,6 +27,7 @@ class Human(Player):
             return True
 
 
+    # εκτυπωνει το υπολοιπο 80% της εφαρμογης
     def hprint(self, hand):
         print("*******************************************************")
         print("*** Παίκτης: ", self.name, "   *** Σκορ: ", self.pscore)

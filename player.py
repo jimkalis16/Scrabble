@@ -13,6 +13,7 @@ with open('greek7.txt', 'r', encoding="utf-8") as f7:
         words.append(line.strip('\n'))
 
 
+# κατασκευαστης παικτων γονεας απο computer και human
 class Player:
 
     def __init__(self, name):
@@ -22,27 +23,29 @@ class Player:
         self.pscore = 0
         self.cscore = 0
 
+    # συναρτηση που σπαει ενα string σε λιστα απο χαρακτηρες
     def string_brake(self, word):
 
         self.word = [char for char in word]
         return self.word
 
+    # ελενχει αν η λεξη που δωθηκε (word) αποτελειτε απο τα γραμματα στο χερι (hand)
     def elenxos1(self, letters, hand):
         flag1 = False
-        # elenxos 1 an ta grammata iparxoun sto xeri
         result = all(elem in hand for elem in letters)
         if (result):
             flag1 = True
         return flag1
 
+    # ελενχει αν η λεξη που δωθηκε (word) ειναι αποθηκευμενη στο αρχιο greek7
     def elenxos2(self, word):
         flag2 = False
-    # elenxos 2 elenxei tin lexi sto arxio
         for i in words:
             if (word == i):
                 flag2 = True
         return flag2
 
+    # βαθμολογει την λεξη που εδωσε ο παικτης
     def points(self, word):
         point = 0
         for i in range(len(word)):
@@ -51,13 +54,14 @@ class Player:
                     ww = p
                     point += ww
         self.score += point
-
         return point
 
+    # συνολικοι ποντοι για human
     def pscore(self):
 
         return self.pscore
 
+    # συνολικοι ποντοι για computer
     def cscore(self):
 
         return self.cscore
