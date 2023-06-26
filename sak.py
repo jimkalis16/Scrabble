@@ -19,24 +19,24 @@ class SakClass:
         return self.sak
 
     def getletters(self):
-        plst = []
+        plist = []
         for i in range(7):
-            plst.append(self.sak[i])
+            plist.append(self.sak[i])
             self.sak.pop(i)
-        return plst
+        return plist
 
-    def getletters2(self, xer, word):
-        plst= remove_used_letters.Remove_letters.remove_letters(xer, word)
-        elipsh=7-len(plst)
+    def getletters2(self, hand, word):
+        plist= remove_used_letters.Remove_letters.remove_letters(hand, word)
+        elipsh=7-len(plist)
         for i in range(elipsh):
-            plst.append(self.sak[i])
+            plist.append(self.sak[i])
             self.sak.pop(i)
-        return plst
+        return plist
 
-    def putbackletters(self, lst):
-        plst = []
-        for i in range(len(lst)):
-            plst.append(self.sak[i])
+    def putbackletters(self, list):
+        plist = []
+        for i in range(len(list)):
+            plist.append(self.sak[i])
             self.sak.pop(i)
-            self.sak.append(lst[i])
-        return plst
+            self.sak.append(list[i])
+        return plist

@@ -3,29 +3,29 @@ from player import Player
 
 class Human(Player):
 
-    def hplay(self, lexi, xeri):
+    def hplay(self, word, hand):
 
-        gram = Player.string_brake(self, lexi)
-        helenxos1 = Player.elenxos1(self, gram, xeri, lexi)
-        helenxos2 = Player.elenxos2(self, gram, xeri, lexi)
-        helenxos = helenxos1 and helenxos2
-        if (lexi == "pass"):
+        letters = Player.string_brake(self, word)
+        elenxos1 = Player.elenxos1(self, letters, hand)
+        elenxos2 = Player.elenxos2(self, word)
+        elenxos = elenxos1 and elenxos2
+        if (word == "pass" or word == "PASS"):
             print("πασο")
             return False
-        if (helenxos == False):
+        if (elenxos is False):
             print("Δεν υπαρχει τετοια λεξη")
             return False
-        if (helenxos == True):
-            ppoints = Player.points(self, gram)
-            self.pskor += ppoints
-            print("Λέξη: ", lexi)
-            print("Πόντοι λέξης: ", ppoints)
-            print("*** Παίκτης: ", self.name, "   *** Σκορ: ", self.pskor)
+        if (elenxos is True):
+            points = Player.points(self, letters)
+            self.pscore += points
+            if (self.name == "pc"):
+                print("Λέξη: ", word)
+            print("Πόντοι λέξης: ", points)
+            print("*** Παίκτης: ", self.name, "   *** Σκορ: ", self.pscore)
             return True
 
 
-    def hprint(self, xeri):
+    def hprint(self, hand):
         print("*******************************************************")
-        print("*** Παίκτης: ", self.name, "   *** Σκορ: ", self.pskor)
-        print(">>> Γράμματα: ", xeri)
-
+        print("*** Παίκτης: ", self.name, "   *** Σκορ: ", self.pscore)
+        print(">>> Γράμματα: ", hand)

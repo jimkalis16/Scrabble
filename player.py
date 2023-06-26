@@ -16,43 +16,43 @@ with open('greek7.txt', 'r', encoding="utf-8") as f7:
 class Player:
 
     def __init__(self, name):
-        self.skor = 0
-        self.xeri = []
+        self.score = 0
+        self.hand = []
         self.name = name
-        self.pskor = 0
-        self.cskor = 0
+        self.pscore = 0
+        self.cscore = 0
 
-    def string_brake(self, lexi):
+    def string_brake(self, word):
 
-        self.lex = [char for char in lexi]
-        return self.lex
+        self.word = [char for char in word]
+        return self.word
 
-    def elenxos1(self, lex, xeri, lexi):
+    def elenxos1(self, letters, hand):
         flag1 = False
         # elenxos 1 an ta grammata iparxoun sto xeri
-        result = all(elem in xeri for elem in lex)
+        result = all(elem in hand for elem in letters)
         if (result):
             flag1 = True
         return flag1
 
-    def elenxos2(self, lex, xeri, lexi):
+    def elenxos2(self, word):
         flag2 = False
     # elenxos 2 elenxei tin lexi sto arxio
         for i in words:
-            if (lexi == i):
+            if (word == i):
                 flag2 = True
         return flag2
 
-    def points(self, lex):
-        pods = 0
-        for i in range(len(lex)):
+    def points(self, word):
+        point = 0
+        for i in range(len(word)):
             for e, p in points.points.items():
-                if (lex[i] == e):
+                if (word[i] == e):
                     ww = p
-                    pods += ww
-        self.skor += pods
+                    point += ww
+        self.score += point
 
-        return pods
+        return point
 
     def pscore(self):
 
