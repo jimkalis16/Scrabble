@@ -1,6 +1,6 @@
 import random
 import lets
-
+import remove_used_letters
 
 class SakClass:
 
@@ -18,9 +18,17 @@ class SakClass:
         random.shuffle(self.sak)
         return self.sak
 
-    def getletters(self, gra):
+    def getletters(self):
         plst = []
-        for i in range(gra):
+        for i in range(7):
+            plst.append(self.sak[i])
+            self.sak.pop(i)
+        return plst
+
+    def getletters2(self, xer, word):
+        plst= remove_used_letters.Remove_letters.remove_letters(xer, word)
+        elipsh=7-len(plst)
+        for i in range(elipsh):
             plst.append(self.sak[i])
             self.sak.pop(i)
         return plst

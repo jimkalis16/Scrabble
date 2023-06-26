@@ -17,8 +17,8 @@ class Game:
         self.pln = input("Ονομα παικtη:")
         self.sak = SakClass()
         self.sak.randomize_sak()
-        self.pxeri = self.sak.getletters(7)
-        self.cxeri = self.sak.getletters(7)
+        self.pxeri = self.sak.getletters()
+        self.cxeri = self.sak.getletters()
         self.pl1 = Human(self.pln)
         self.com = Computer("pc")
         print(
@@ -40,23 +40,22 @@ class Game:
             flagp = self.pl1.hplay(self.lex, self.pxeri)
             if (flagp == True):
                 psak = len(self.lex)
-                self.pxeri = self.pxeri + self.sak.getletters(psak + 1)
-                self.pskor += self.pl1.points(self.pl1.srcr(self.lex))
+                self.pxeri = self.pxeri + self.sak.getletters2(self.pxeri, self.lex)
+                self.pskor += self.pl1.points(self.pl1.string_brake(self.lex))
             else:
                 self.sak.putbackletters(self.pxeri)
-                self.pxeri = self.sak.getletters(7)
+                self.pxeri = self.sak.getletters()
             flagp = False
 
             # code for computer turn
             flagc = self.com.cplay(self.cxeri)
             if (flagc == True):
                 cl = self.com.alg(self.cxeri, words)
-                csak = len(cl)
-                self.cxeri =self.sak.getletters(csak + 1)
-                self.cskor += self.com.points(self.pl1.srcr(cl))
+                self.cxeri =self.sak.getletters2(self.cxeri, cl)
+                self.cskor += self.com.points(self.pl1.string_brake(cl))
             else:
                 self.sak.putbackletters(self.cxeri)
-                self.cxeri = self.sak.getletters(7)
+                self.cxeri = self.sak.getletters()
             flagc = False
             # code for player turn and end of while
             self.pl1.hprint(self.pxeri)

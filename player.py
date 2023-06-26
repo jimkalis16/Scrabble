@@ -4,7 +4,7 @@ import json
 # code pou pernei lexeis apo to greek7.txt kai tis bazei se lista
 import points
 
-with open('scraHS.json', 'r', encoding="utf-8") as fin:
+with open('score.json', 'r', encoding="utf-8") as fin:
     highskors = json.load(fin)
 
 words = []
@@ -22,7 +22,7 @@ class Player:
         self.pskor = 0
         self.cskor = 0
 
-    def srcr(self, lexi):
+    def string_brake(self, lexi):
 
         self.lex = [char for char in lexi]
         return self.lex
@@ -48,17 +48,16 @@ class Player:
         for i in range(len(lex)):
             for e, p in points.points.items():
                 if (lex[i] == e):
-                    # ww=points[ee]
                     ww = p
                     pods += ww
         self.skor += pods
 
         return pods
 
-    def pkor(self):
+    def pscore(self):
 
-        return self.pskor
+        return self.pscore
 
-    def ckor(self):
+    def cscore(self):
 
-        return self.cskor
+        return self.cscore

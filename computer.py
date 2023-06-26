@@ -6,7 +6,7 @@ class Computer(Player):
     def alg(self, xeri, words):
         for strin in words:
             string_chars =' '.join(list(strin))
-            gram = Player.srcr(self, strin)
+            gram = Player.string_brake(self, strin)
             if Player.elenxos1(self, gram, xeri, strin) and Player.elenxos2(self, gram, xeri, strin):
                     return string_chars
         return False

@@ -1,7 +1,8 @@
 import game
 import json
+import guidelines
 
-with open('scraHS.json', 'r', encoding="utf-8") as fin:
+with open('score.json', 'r', encoding="utf-8") as fin:
   highskors = json.load(fin)
   sorths = sorted(highskors.items(), key=lambda x: x[1])
 
@@ -10,6 +11,7 @@ print("***** Scrambble *****\n "
       "1: Σκορ \n"
       "2: Ρυθμισεις \n"
       "3: Παιχνιδι \n"
+      "g: Τεκμηρίωση \n"
       "q: Εξοδος \n"
       "---------------------\n")
 
@@ -30,6 +32,8 @@ elif (ap == '3'):
 elif (ap == 'q'):
   print("Αντιο")
   exit(202)
+elif (ap == 'g'):
+    print(guidelines.guidelines())
 else:
   print("Καμια επιλογη")
   exit(404)

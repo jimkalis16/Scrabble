@@ -5,7 +5,7 @@ class Human(Player):
 
     def hplay(self, lexi, xeri):
 
-        gram = Player.srcr(self, lexi)
+        gram = Player.string_brake(self, lexi)
         helenxos1 = Player.elenxos1(self, gram, xeri, lexi)
         helenxos2 = Player.elenxos2(self, gram, xeri, lexi)
         helenxos = helenxos1 and helenxos2
